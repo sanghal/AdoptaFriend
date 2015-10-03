@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  date: 2015-10-03
+  name: MyString
+  breed: MyString
+  age: 1
+  parent_breed: MyString
+  personality: MyText
+  adoption_fee: MyString
+  note: MyText
+
+two:
+  user_id: 1
+  date: 2015-10-03
+  name: MyString
+  breed: MyString
+  age: 1
+  parent_breed: MyString
+  personality: MyText
+  adoption_fee: MyString
+  note: MyText

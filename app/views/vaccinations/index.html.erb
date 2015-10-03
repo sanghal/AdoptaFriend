@@ -1,0 +1,29 @@
+<h1>Listing vaccinations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Animal</th>
+      <th>Name</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vaccinations.each do |vaccination| %>
+      <tr>
+        <td><%= vaccination.animal_id %></td>
+        <td><%= vaccination.name %></td>
+        <td><%= vaccination.date %></td>
+        <td><%= link_to 'Show', vaccination %></td>
+        <td><%= link_to 'Edit', edit_vaccination_path(vaccination) %></td>
+        <td><%= link_to 'Destroy', vaccination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vaccination', new_vaccination_path %>
