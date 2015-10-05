@@ -1,49 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @animal.user_id %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @animal.date %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @animal.name %>
-</p>
-
-<p>
-  <strong>Breed:</strong>
-  <%= @animal.breed %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @animal.age %>
-</p>
-
-<p>
-  <strong>Parent breed:</strong>
-  <%= @animal.parent_breed %>
-</p>
-
-<p>
-  <strong>Personality:</strong>
-  <%= @animal.personality %>
-</p>
-
-<p>
-  <strong>Adoption fee:</strong>
-  <%= @animal.adoption_fee %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @animal.note %>
-</p>
+<%= link_to 'Animals', animals_path %>/<%= @animal.name %>
+<div class="row">
+  <div class="col-md-12">
+    <p><h1><%= @animal.name %></h1></p>
+  </div>
+  <div class="col-md-6">
+  </div>
+  <div class="col-md-6">
+    <h3>
+      Name: <%= @animal.name %>
+      <br>
+      <br>
+      Breed: <%= @animal.breed %>
+      <br>
+      <br>
+      Age: <%= @animal.age %>
+      <br>
+      <br>
+      Adoption fee: <%= @animal.adoption_fee %>
+      <br>
+      <br>
+    </h3>
+    <h4>
+      Parent Breed: <%= @animal.parent_breed %>
+      <br>
+      <br>
+      Personality:
+      <br>
+      <br>
+      <%= @animal.personality %>
+      <br>
+      <br>
+      Note:
+      <br>
+      <br>
+      <%= @animal.note %>
+      <br>
+    </h4>
+  </div>
+  
+</div>
 
 <%= link_to 'Edit', edit_animal_path(@animal) %> |
 <%= link_to 'Back', animals_path %>
