@@ -1,0 +1,17 @@
+.jumbotron{
+color:white;
+text-align: center;
+height: 500px;
+background: url('/assets/cover.jpg') no-repeat;
+background-size: 100% auto;
+}
+
+#ban{
+	margin-top:100px;
+	margin-left:300px;
+}
+
+
+.container-marketing{
+	text-align: center;
+}
