@@ -28,7 +28,7 @@ class AnimalsController < ApplicationController
     @animal.date = Date.today
     respond_to do |format|
       if @animal.save
-        format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
+        format.html { redirect_to animals_url, notice: 'Animal was successfully created.' }
         format.json { render :show, status: :created, location: @animal }
       else
         format.html { render :new }

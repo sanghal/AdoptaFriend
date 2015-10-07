@@ -1,35 +1,25 @@
 
 
-
+<div class="container">
+<div id = "animalform">
+<h2> Put an animal up for adoption </h2>
 <%= simple_form_for(@animal) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-  	<div class="col-lg-6 col-md-6 col-sm-12">
-  		<%= f.input :name %>
-  	</div>
-  		<div class="col-lg-6 col-md-6 col-sm-12">
+
+  	<%= f.input :name %>
   	<%= f.input :breed %>
-  	</div>
-  		<div class="col-lg-6 col-md-6 col-sm-12">
   	<%= f.input :age %>
-  	</div>
-  	<div class="col-lg-6 col-md-6 col-sm-12">
-  		<%= f.input :parent_breed %>
-  	</div>
-  	<div class="col-lg-6 col-md-6 col-sm-12">
-  		<%= f.input :personality %>
-  	</div>
-  	<div class="col-lg-6 col-md-6 col-sm-12">
-  		<%= f.input :adoption_fee %>
-  	</div>
-  	<div class="col-lg-6 col-md-6 col-sm-12">
-  		<%= f.input :note %>
-  	</div>
-    <!-- < %= f.input :project_id, collection: Project.active.alphabetical, prompt: "Select project.." %> -->
-  </div>
+  	<%= f.input :parent_breed %>
+  	<%= f.input :personality %>
+  	<%= f.input :adoption_fee %>
+    <%= f.input :note %>
+
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+</div>
+</div>
+
 <% end %>
