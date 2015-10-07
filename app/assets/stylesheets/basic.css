@@ -17,13 +17,21 @@ background-size: 100% auto;
 }
 
 #animalform{
-	padding:300px;
-	padding-top:80px;
-	padding-bottom:80px;
+	margin:250px;
+	padding:50px;
+	margin-top:0px;
+	margin-bottom:80px;
+	background: white;
+	opacity:0.8;
 
 }
 
 .container-fluid {
 
 	height: 80px;
+}
+
+body.animals.new{
+	background: url('/assets/1.jpg') no-repeat;
+	background-size: 100% auto;
 }

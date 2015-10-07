@@ -1,17 +1,25 @@
 <h1>All Animals</h1>
 
 <br>
-<%= link_to 'New Animal', new_animal_path %>
+<div class="btn-group">
+<%= link_to 'New Animal', new_animal_path, class: "btn btn-lg btn-success" %>
+</div>
 <br>
 
   <div class="row">
     <% @animals.each do |animal| %>  
       <div class="col-md-4">
+        <p>Name: <%= animal.name %></p>
         <p><%= animal.user_id %></p>
         <p>Breed: <%= animal.breed %></p>
         <p>Age: <%= animal.age %></p>
-        <p>Name: <%= animal.name %></p>
         <p>Date Added: <%= animal.date %></p>
+      <div class="col-md-4">
+      <p><a class="btn btn-info btn-sm" href="#" role="button">View Profile</a></p>
+      </div>
+      <div class="col-md-4">
+      <p><a class="btn btn-info btn-sm" href="#" role="button">Interested</a></p>
+      </div>
       </div>
     <% end %>
   </div>
