@@ -3,12 +3,16 @@
 <head>
   <title>Adoptapet</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "bootstrap.min.css", media: "all" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
+<body class="<%= controller_name %> <%= action_name %>">
+  <%= render :partial => "partials/nav" %>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
