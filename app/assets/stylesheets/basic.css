@@ -22,3 +22,8 @@ background-size: 100% auto;
 	padding-bottom:80px;
 
 }
+
+.container-fluid {
+
+	height: 80px;
+}
