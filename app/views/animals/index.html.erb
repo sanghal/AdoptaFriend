@@ -1,25 +1,30 @@
 <h1>All Animals</h1>
 
 <br>
-<div class="btn-group">
-<%= link_to 'New Animal', new_animal_path, class: "btn btn-lg btn-success" %>
-</div>
+  <div class="btn-group">
+    <%= link_to 'New Animal', new_animal_path, class: "btn btn-lg btn-success" %>
+  </div>
 <br>
-
+<br>
   <div class="row">
     <% @animals.each do |animal| %>  
       <div class="col-md-4">
-        <p>Name: <%= animal.name %></p>
-        <p><%= animal.user_id %></p>
-        <p>Breed: <%= animal.breed %></p>
-        <p>Age: <%= animal.age %></p>
-        <p>Date Added: <%= animal.date %></p>
-      <div class="col-md-4">
-      <p><a class="btn btn-info btn-sm" href="#" role="button">View Profile</a></p>
-      </div>
-      <div class="col-md-4">
-      <p><a class="btn btn-info btn-sm" href="#" role="button">Interested</a></p>
-      </div>
+        <img src="/assets/<%= animal.id %>.jpg" class="img-circle" alt="<%= animal.name %>" width="200" height="200">
+        <br>
+        Name: <%= animal.name %>
+        <br>
+        Breed: <%= animal.breed %>
+        <br>
+        Age: <%= animal.age %>
+        <br>
+        Date Added: <%= animal.date %>
+        <br>
+        <div class="col-md-4">
+          <p><a class="btn btn-info btn-sm" href="/animals/<%= animal.id %>" role="button">View Profile</a></p>
+        </div>
+        <div class="col-md-4">
+          <p><a class="btn btn-info btn-sm" href="#" role="button">Interested</a></p>
+        </div>
       </div>
     <% end %>
   </div>
