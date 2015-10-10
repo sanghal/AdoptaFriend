@@ -24,6 +24,8 @@
         </div>
         <div class="col-md-4">
           <p><a class="btn btn-info btn-sm" href="#" role="button">Interested</a></p>
+
+          <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id }%>
         </div>
       </div>
     <% end %>

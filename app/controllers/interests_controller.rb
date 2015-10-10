@@ -24,15 +24,16 @@ class InterestsController < ApplicationController
   # POST /interests
   # POST /interests.json
   def create
-    @interest = Interest.new(interest_params)
+    @animal = Animal.find(params[:animal])
+    @interest = Interest.new(user_id: 1, animal_id: @animal.id, date: Date.today)
 
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to @interest, notice: 'Interest was successfully created.' }
-        format.json { render :show, status: :created, location: @interest }
+        format.html { redirect_to animals_url, notice: 'You sent an interest to the animal' }
+        format.json { head :no_content }
       else
-        format.html { render :new }
-        format.json { render json: @interest.errors, status: :unprocessable_entity }
+        format.html { redirect_to animals_url, notice: 'There was an error' }
+        format.json { head :no_content }
       end
     end
   end
@@ -42,11 +43,11 @@ class InterestsController < ApplicationController
   def update
     respond_to do |format|
       if @interest.update(interest_params)
-        format.html { redirect_to @interest, notice: 'Interest was successfully updated.' }
-        format.json { render :show, status: :ok, location: @interest }
+        format.html { redirect_to animals_url, notice: 'You sent an interest to the animal' }
+        format.json { head :no_content }
       else
-        format.html { render :edit }
-        format.json { render json: @interest.errors, status: :unprocessable_entity }
+        format.html { redirect_to animals_url, notice: 'There was an error' }
+        format.json { head :no_content }
       end
     end
   end
@@ -60,6 +61,7 @@ class InterestsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
