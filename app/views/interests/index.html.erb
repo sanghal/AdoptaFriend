@@ -2,25 +2,30 @@
 
 <table>
   <thead>
-    <tr>
-      <th>User</th>
-      <th>Animal</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
   </thead>
 
   <tbody>
-    <% @interests.each do |interest| %>
+  <% unless @current_user.animals.interests.empty? %>
+    <% @current_user.animals.interests.each do |interest| %>
       <tr>
-        <td><%= interest.user_id %></td>
-        <td><%= interest.animal_id %></td>
-        <td><%= interest.date %></td>
+        <!-- <td><%= user.profilepic%></td> -->
+        <td><%= interest.user.name %></td>
+        <td> <p>is interested in your</p> <td>
+        <td><%= interest.animal.name %></td>
+         <!-- <td><%= animal.picture%></td> -->
+
         <td><%= link_to 'Show', interest %></td>
         <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
-        <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
+  <% end %>
+  <% else %>
+      <h3>You dont have any animal up for adoption</h3>
+  <%end%>
+
+
+
   </tbody>
 </table>
 
