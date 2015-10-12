@@ -5,6 +5,14 @@
     <%= link_to 'New Animal', new_animal_path, class: "btn btn-lg btn-success" %>
   </div>
 <br>
+
+<%= form_tag animals_path, :method => 'get' do %>
+  <br>
+    <%= select_tag :search, options_for_select([['Hot','breed'],['Medium','breed1'],['Cold','test']]) %>
+    <%= submit_tag "Search" %>
+  <br>
+<% end %>
+
 <br>
   <div class="row">
     <% @animals.each do |animal| %>  

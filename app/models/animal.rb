@@ -4,4 +4,8 @@ class Animal < ActiveRecord::Base
 	belongs_to :user
 	has_many :vaccination
 
+	def self.search(search)
+		self.where("breed like ?", "%#{search}%")
+	end
+
 end
