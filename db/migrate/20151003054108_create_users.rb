@@ -13,6 +13,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :residence_info
       t.text :about
       t.boolean :active
+      t.string :password_digest
 
       t.timestamps
     end
