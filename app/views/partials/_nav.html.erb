@@ -10,7 +10,16 @@
         <li><%= link_to "Animals", animals_url %></li>
 	  	  <li><%= link_to "Matches", interests_url %></li>
 	  	  <li><%= link_to "My Profile", animals_url %></li>
-	  	  <li><%= link_to "Logout", animals_url %></li>
+	  	  <div id="login">
+          <!-- content once logged in goes here -->
+          <% if logged_in? %>
+            <%= link_to 'Logout', logout_path %>
+            <br>[<%= current_user.proper_name %>:<%= current_user.role %>]
+          <% else %>
+            <%= link_to 'Login', login_path %>
+          <% end %>
+      </div>
+    </li>
       </ul>
     </div>
   </div>
