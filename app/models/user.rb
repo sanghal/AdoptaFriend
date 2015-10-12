@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
     	find_by_email(email).try(:authenticate, password)
   	end
 
+  	def proper_name
+  		first_name + " " + last_name
+  	end
+
 end

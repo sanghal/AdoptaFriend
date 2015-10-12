@@ -14,7 +14,7 @@
           <!-- content once logged in goes here -->
           <% if logged_in? %>
             <%= link_to 'Logout', logout_path %>
-            <br>[<%= current_user.proper_name %>:<%= current_user.role %>]
+            <!-- <br><%= current_user.proper_name %> -->
           <% else %>
             <%= link_to 'Login', login_path %>
           <% end %>
