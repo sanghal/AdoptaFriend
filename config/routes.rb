@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
   resources :vaccinations
-
   resources :animals
-
   resources :interests
-
   resources :users
-
+  resources :sessions
 
   get 'home/index' => 'home#index', as: :home
+  get 'user/edit' => 'user#edit', :as => edit_current_user
+  get 'signup' => 'users#new', :as => :signup
+  get 'login' => 'sessions#new', :as => :login
+  get 'logout' => 'sessions#destroy', :as => :logout
+
+
   root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
