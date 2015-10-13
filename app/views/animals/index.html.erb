@@ -1,9 +1,11 @@
 <h1>All Animals</h1>
 
 <br>
+<% if logged_in? %>
   <div class="btn-group">
     <%= link_to 'New Animal', new_animal_path, class: "btn btn-lg btn-success" %>
   </div>
+<% end %>
 <br>
 
 <%= form_tag animals_path, :method => 'get' do %>

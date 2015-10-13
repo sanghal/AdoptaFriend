@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20151003055627) do
     t.text     "residence_info"
     t.text     "about"
     t.boolean  "active"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
