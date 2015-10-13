@@ -5,6 +5,9 @@ class Animal < ActiveRecord::Base
 	belongs_to :user
 	has_many :vaccinations
 
+	validates_presence_of :user_id
+	validates_numericality_of :adoption_fee, only_integer: true, greater_than_or_equal_to: 0
+
 	def self.search(animal, breed, age)
 		if (breed != "" && breed != "Other")
 			if (age.to_i >= 0)
