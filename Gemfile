@@ -46,3 +46,5 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Using filterrific for searching
+gem 'filterrific'

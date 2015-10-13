@@ -7,6 +7,18 @@
   </div>
 <% end %>
 <br>
+
+<%= form_tag animals_path, :method => 'get' do %>
+  <br>
+    <%= select_tag :animal, options_for_select([['Show All', "All"], ["Dog", "dog"], ["Cat", "cat"], ["Hamster", "hamster"]]), onchange: 'dropdown()', class: "form-control" %>
+    <select name="breed" id="breed" class="form-control">
+      <option value="">Select an Animal</option>
+    </select>
+    <%= select_tag :age, options_for_select([['Any Age', -1],['0~3', 3], ['4~7', 7], ['8~11', 11], ['Other', 12]]), class: "form-control" %>
+    <%= submit_tag "Search" %>
+  <br>
+<% end %>
+
 <br>
   <div class="row">
     <% @animals.each do |animal| %>  
@@ -26,20 +38,20 @@
         </div>
         <div class="col-md-4">
 
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Thank you</h4>
-      </div>
-      <div class="modal-body">
-        You just expressed your interest!
-      </div>
-      
-    </div>
-  </div>
-</div>
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Thank you</h4>
+              </div>
+              <div class="modal-body">
+                You just expressed your interest!
+              </div>
+              
+            </div>
+          </div>
+        </div>
         <% if logged_in? %>
 
           <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-primary", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
@@ -49,3 +61,28 @@
     <% end %>
   </div>
 <br>
+
+<script>
+  function dropdown() {
+    $('#breed').empty();
+    var initOption = $('<option>');
+    initOption.attr('value', "").text("Select a breed");
+    $('#breed').append(initOption);
+
+    var temp;
+
+    if(document.getElementById("animal").value == "dog") temp = ["Retriever", "German Sheperd", "Bulldog", "Beagle", "Yorkshire Terrier", "Poodle", "Boxer", "Rottweiler", "Dachshund", "Pointer"];
+    if(document.getElementById("animal").value == "cat") temp = ["Oriental", "American Shorthair", "Birman", "Sphynx", "Ragdoll", "Siamese", "Abyssinian"];
+    if(document.getElementById("animal").value == "hamster") temp = ["Syrian", "Dwarf Campbell Russian", "Dwarf Winter White Russian", "Roborovski Dwarf", "Chinese"];
+
+    temp.sort();
+
+    temp.push("Other");
+
+    for(var i = 0; i < temp.length; i++){
+      var newOption = $('<option>');
+      newOption.attr('value', temp[i]).text(temp[i]);
+      $('#breed').append(newOption);
+    }
+  } 
+</script>
