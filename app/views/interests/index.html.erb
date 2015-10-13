@@ -1,34 +1,39 @@
-<h1>Listing interests</h1>
 
-<table>
+
+<table class="table table-hover">
   <thead>
   </thead>
 
   <tbody>
-  <% unless @current_user.animals.interests.empty? %>
-    <% @current_user.animals.interests.each do |interest| %>
-      <tr>
-        <!-- <td><%= user.profilepic%></td> -->
-        <td><%= interest.user.name %></td>
-        <td> <p>is interested in your</p> <td>
-        <td><%= interest.animal.name %></td>
-         <!-- <td><%= animal.picture%></td> -->
 
-        <td><%= link_to 'Show', interest %></td>
-        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
+
+    <% current_user.animals.map{|i| i.interests}.each do |interested| %>
+    <%interested.each do |interest|%>
+    
+
+      <tr>
+        <td><%= interest.user.first_name %></td>
+   
+        <td>is interested in your <td>
+
+        <td><%= interest.animal.name %></td>
+
+
+
+        <td><%= link_to 'Send Email', interest %></td>
+
+        <td><%= link_to 'Delete', edit_interest_path(interest) %></td>
 
       </tr>
     <% end %>
-  <% end %>
-  <% else %>
-      <h3>You dont have any animal up for adoption</h3>
-  <%end%>
+    <% end %>
 
 
 
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Interest', new_interest_path %>
+

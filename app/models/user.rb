@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 	has_many :animals, through: :interests
+	has_many :interests
 	has_many :animals
 
 	has_secure_password

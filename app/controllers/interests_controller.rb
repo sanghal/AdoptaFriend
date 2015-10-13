@@ -24,12 +24,13 @@ class InterestsController < ApplicationController
   # POST /interests
   # POST /interests.json
   def create
+    @user = User.find(params[:user])
     @animal = Animal.find(params[:animal])
-    @interest = Interest.new(user_id: 1, animal_id: @animal.id, date: Date.today)
+    @interest = Interest.new(user_id: @user.id, animal_id: @animal.id, date: Date.today)
 
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to animals_url, notice: 'You sent an interest to the animal' }
+        format.html { redirect_to :back, notice: 'You sent an interest to the animal' }
         format.json { head :no_content }
       else
         format.html { redirect_to animals_url, notice: 'There was an error' }
