@@ -10,7 +10,7 @@
 
 <%= form_tag animals_path, :method => 'get' do %>
   <br>
-    <%= select_tag :animal, options_for_select([['Show All',nil], ["Dog", "dog"], ['Cat', 'cat'], ['Hamster', 'hamster']]), onchange: 'dropdown()', class: "form-control" %>
+    <%= select_tag :animal, options_for_select([['Show All', "All"], ["Dog", "dog"], ["Cat", "cat"], ["Hamster", "hamster"]]), onchange: 'dropdown()', class: "form-control" %>
     <select name="breed" id="breed" class="form-control">
       <option value="">Select an Animal</option>
     </select>
@@ -71,9 +71,13 @@
 
     var temp;
 
-    if(document.getElementById("animal").value == "dog") temp = ["Golden Retriever", "Terrier"];
-    if(document.getElementById("animal").value == "cat") temp = ["Cat1", "Cat2"];
-    if(document.getElementById("animal").value == "hamster") temp = ["Hamster1", "Hamster2"];
+    if(document.getElementById("animal").value == "dog") temp = ["Retriever", "German Sheperd", "Bulldog", "Beagle", "Yorkshire Terrier", "Poodle", "Boxer", "Rottweiler", "Dachshund", "Pointer"];
+    if(document.getElementById("animal").value == "cat") temp = ["Oriental", "American Shorthair", "Birman", "Sphynx", "Ragdoll", "Siamese", "Abyssinian"];
+    if(document.getElementById("animal").value == "hamster") temp = ["Syrian", "Dwarf Campbell Russian", "Dwarf Winter White Russian", "Roborovski Dwarf", "Chinese"];
+
+    temp.sort();
+
+    temp.push("Other");
 
     for(var i = 0; i < temp.length; i++){
       var newOption = $('<option>');
