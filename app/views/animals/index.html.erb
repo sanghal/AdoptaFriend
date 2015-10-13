@@ -10,8 +10,10 @@
 
 <%= form_tag animals_path, :method => 'get' do %>
   <br>
-    <%= select_tag :animal, options_for_select([['Show All',nil], ['Dog', 'dog']]) %>
-    <%= select_tag :breed, options_for_select([['Show All',nil],['Dog','breed'],['Cat','breed1'],['Cold','test']]) %>
+    <%= select_tag :animal, options_for_select([['Show All',nil], ["Dog", "dog"], ['Cat', 'cat'], ['Hamster', 'hamster']]), onchange: 'dropdown()' %>
+    <select name="breed" id="breed">
+      <option value="">Select an Animal</option>
+    </select>
     <%= select_tag :age, options_for_select([['Any Age', -1],['0~3', 3], ['4~7', 7], ['8~11', 11], ['Other', 12]]) %>
     <%= submit_tag "Search" %>
   <br>
@@ -62,7 +64,21 @@
 
 <script>
   function dropdown() {
-    var x = document.getElementById("type").value;
+    $('#breed').empty();
+    var initOption = $('<option>');
+    initOption.attr('value', "").text("Select a breed");
+    $('#breed').append(initOption);
 
+    var temp;
+
+    if(document.getElementById("animal").value == "dog") temp = ["Golden Retriever", "Terrier"];
+    if(document.getElementById("animal").value == "cat") temp = ["Cat1", "Cat2"];
+    if(document.getElementById("animal").value == "hamster") temp = ["Hamster1", "Hamster2"];
+
+    for(var i = 0; i < temp.length; i++){
+      var newOption = $('<option>');
+      newOption.attr('value', temp[i]).text(temp[i]);
+      $('#breed').append(newOption);
+    }
   } 
 </script>

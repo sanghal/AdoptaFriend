@@ -5,7 +5,7 @@ class Animal < ActiveRecord::Base
 	belongs_to :user
 	has_many :vaccinations
 
-	def self.search(breed, age)
+	def self.search(animal, breed, age)
 		if (age.to_i >= 0)
 			subage = age.to_i - 3
 			self.where("breed LIKE ? AND (age >= ? AND age <= ?)", "%#{breed}%", subage, age.to_i)
