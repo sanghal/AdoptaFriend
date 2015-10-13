@@ -19,12 +19,22 @@
         <br>
         Date Added: <%= animal.date %>
         <br>
+        User: <%= animal.user_id %>
         <div class="col-md-4">
           <p><a class="btn btn-info btn-sm" href="/animals/<%= animal.id %>" role="button">View Profile</a></p>
         </div>
         <div class="col-md-4">
 
-          <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id }%>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+
+
+          <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-primary", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
         </div>
       </div>
     <% end %>

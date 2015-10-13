@@ -26,6 +26,7 @@ class AnimalsController < ApplicationController
   def create
     @animal = Animal.new(animal_params)
     @animal.date = Date.today
+    @animal.user_id = current_user.id if current_user
     respond_to do |format|
       if @animal.save
         format.html { redirect_to animals_url, notice: 'Animal was successfully created.' }
