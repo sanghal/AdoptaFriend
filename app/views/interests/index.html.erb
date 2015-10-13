@@ -1,6 +1,6 @@
 
 
-<table>
+<table class="table table-hover">
   <thead>
   </thead>
 
@@ -13,15 +13,15 @@
 
       <tr>
         <td><%= interest.user.first_name %></td>
-        </br>
+   
         <td>is interested in your <td>
-        <br>
+
         <td><%= interest.animal.name %></td>
-        <br>
+
 
 
         <td><%= link_to 'Send Email', interest %></td>
-        <br>
+
         <td><%= link_to 'Delete', edit_interest_path(interest) %></td>
 
       </tr>

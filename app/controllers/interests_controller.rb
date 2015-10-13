@@ -30,7 +30,7 @@ class InterestsController < ApplicationController
 
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to animals_url, notice: 'You sent an interest to the animal' }
+        format.html { redirect_to :back, notice: 'You sent an interest to the animal' }
         format.json { head :no_content }
       else
         format.html { redirect_to animals_url, notice: 'There was an error' }
