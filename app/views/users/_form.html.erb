@@ -18,9 +18,8 @@
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
     <%= f.input :age  %>
-    <%= f.input :gender, as: :select do %>
-       <%= f.check_box :gender, {}, "Female", "Male" %>
-    <% end %>
+    <%= f.input :gender, as: :select, collection:["Female", "Male"] %>
+     
     <%= f.input :family_info %>
     <%= f.input :pet_info %>
     <%= f.input :phone_number %>
