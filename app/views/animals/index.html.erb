@@ -8,7 +8,9 @@
 
 <%= form_tag animals_path, :method => 'get' do %>
   <br>
-    <%= select_tag :search, options_for_select([['Hot','breed'],['Medium','breed1'],['Cold','test']]) %>
+    <%= select_tag :animal, options_for_select([['Show All',nil], ['Dog', 'dog']]) %>
+    <%= select_tag :breed, options_for_select([['Show All',nil],['Dog','breed'],['Cat','breed1'],['Cold','test']]) %>
+    <%= select_tag :age, options_for_select([['Any Age', -1],['0~3', 3], ['4~7', 7], ['8~11', 11], ['Other', 12]]) %>
     <%= submit_tag "Search" %>
   <br>
 <% end %>
@@ -32,9 +34,33 @@
         </div>
         <div class="col-md-4">
 
-          <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id }%>
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Thank you</h4>
+              </div>
+              <div class="modal-body">
+                You just expressed your interest!
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <% if logged_in? %>
+
+          <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-primary", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
+        <% end %>
         </div>
       </div>
     <% end %>
   </div>
 <br>
+
+<script>
+  function dropdown() {
+    var x = document.getElementById("type").value;
+
+  } 
+</script>
