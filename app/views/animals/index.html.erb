@@ -10,11 +10,11 @@
 
 <%= form_tag animals_path, :method => 'get' do %>
   <br>
-    <%= select_tag :animal, options_for_select([['Show All',nil], ["Dog", "dog"], ['Cat', 'cat'], ['Hamster', 'hamster']]), onchange: 'dropdown()' %>
-    <select name="breed" id="breed">
+    <%= select_tag :animal, options_for_select([['Show All',nil], ["Dog", "dog"], ['Cat', 'cat'], ['Hamster', 'hamster']]), onchange: 'dropdown()', class: "form-control" %>
+    <select name="breed" id="breed" class="form-control">
       <option value="">Select an Animal</option>
     </select>
-    <%= select_tag :age, options_for_select([['Any Age', -1],['0~3', 3], ['4~7', 7], ['8~11', 11], ['Other', 12]]) %>
+    <%= select_tag :age, options_for_select([['Any Age', -1],['0~3', 3], ['4~7', 7], ['8~11', 11], ['Other', 12]]), class: "form-control" %>
     <%= submit_tag "Search" %>
   <br>
 <% end %>
