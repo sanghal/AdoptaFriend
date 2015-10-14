@@ -10,9 +10,9 @@
 
 <%= form_tag animals_path, :method => 'get' do %>
   <br>
-    <%= select_tag :animal, options_for_select([['Show All', "All"], ["Dog", "dog"], ["Cat", "cat"], ["Hamster", "hamster"]]), onchange: 'dropdown()', class: "form-control" %>
+    <%= select_tag :animal, options_for_select([["Select an Animal", "All"],["Show All", "All"], ["Dog", "dog"], ["Cat", "cat"], ["Hamster", "hamster"]]), onchange: 'dropdown()', class: "form-control" %>
     <select name="breed" id="breed" class="form-control">
-      <option value="">Select an Animal</option>
+      <option value="">Select an Animal First</option>
     </select>
     <%= select_tag :age, options_for_select([['Any Age', -1],['0~3', 3], ['4~7', 7], ['8~11', 11], ['Other', 12]]), class: "form-control" %>
     <%= submit_tag "Search" %>
@@ -76,8 +76,6 @@
     if(document.getElementById("animal").value == "hamster") temp = ["Syrian", "Dwarf Campbell Russian", "Dwarf Winter White Russian", "Roborovski Dwarf", "Chinese"];
 
     temp.sort();
-
-    temp.push("Other");
 
     for(var i = 0; i < temp.length; i++){
       var newOption = $('<option>');
