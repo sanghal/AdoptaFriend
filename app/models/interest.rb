@@ -3,7 +3,8 @@ class Interest < ActiveRecord::Base
 	belongs_to :animal
 	belongs_to :user
 
-	validate :user_has_one_interest_per_animal, on: :create
+	#validate :user_has_one_interest_per_animal, on: :create
+	
 	private
 	def user_has_one_interest_per_animal
 		return true if self.user.nil? || self.animal.nil?
