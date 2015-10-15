@@ -1,4 +1,4 @@
 class Vaccination < ActiveRecord::Base
 
-	belongs_to :animal
+	has_and_belongs_to_many :animals
 end
