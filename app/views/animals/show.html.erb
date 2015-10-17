@@ -7,9 +7,12 @@
   </div>
   <div class="col-md-6">
     <br>
-    <img class="img-responsive" src="/assets/<%= @animal.id %>.jpg" id="picture">
+  <% unless @animal.photo_url.nil? %>
+    <p><%= image_tag @animal.photo_url %></p>
+  <% end %>
+
   </div>
-  <div class="col-md-6">
+  <div class="col-md-7">
     <h3>
       Name: <%= @animal.name %>
       <br>
@@ -51,6 +54,7 @@
         </tbody>
         </table>
     </h4>
+
   </div>
   
 </div>

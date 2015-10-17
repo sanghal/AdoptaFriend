@@ -5,6 +5,8 @@ class Animal < ActiveRecord::Base
 	belongs_to :user
 	has_and_belongs_to_many :vaccinations
 
+	mount_uploader :photo, PhotoUploader
+
 	#validates_presence_of :user_id
 	validates_numericality_of :adoption_fee, only_integer: true, greater_than_or_equal_to: 0
 
