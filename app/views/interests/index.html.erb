@@ -12,6 +12,11 @@
     
 
       <tr>
+       <% unless interest.user.photo_url.nil? %>
+         <td> <img src= <%= interest.user.photo_url %> class="img-circle" width="25" height="25"></td>
+      <% end %>
+         
+
         <td><%= interest.user.first_name %></td>
    
         <td>is interested in your <td>
@@ -20,7 +25,7 @@
 
 
 
-        <td><%= link_to "Label", {:controller => :interest, :action => :mail, :user => session[:user_id]} %> </td>
+       
 
         <td><%= link_to 'Delete', edit_interest_path(interest) %></td>
 
