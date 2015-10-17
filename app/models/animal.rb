@@ -9,7 +9,7 @@ class Animal < ActiveRecord::Base
 
 	validates_presence_of :user_id
 	validates_numericality_of :adoption_fee, only_integer: true, greater_than_or_equal_to: 0
-
+	validates_presence_of :photo
 
 	def self.search(animal, breed, age)
 		if (breed != "")
