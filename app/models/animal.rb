@@ -7,7 +7,7 @@ class Animal < ActiveRecord::Base
 
 	mount_uploader :photo, PhotoUploader
 
-	#validates_presence_of :user_id
+	validates_presence_of :user_id
 	validates_numericality_of :adoption_fee, only_integer: true, greater_than_or_equal_to: 0
 
 
@@ -28,7 +28,10 @@ class Animal < ActiveRecord::Base
 				breed_array = Array.new()
 				if(animal == "dog") then breed_array = ["Retriever", "German Sheperd", "Bulldog", "Beagle", "Yorkshire Terrier", "Poodle", "Boxer", "Rottweiler", "Dachshund", "Pointer", "Other"] end
 				if(animal == "cat") then breed_array = ["Oriental", "American Shorthair", "Birman", "Sphynx", "Ragdoll", "Siamese", "Abyssinian"] end
-				if(animal == "hamster") then breed_array = ["Syrian", "Dwarf Campbell Russian", "Dwarf Winter White Russian", "Roborovski Dwarf", "Chinese"] end
+			    if(animal == "rabbit") then breed_array = ["Flemish Giant", "Jersey Wooley", "Angoras", "Cinnamon", "Rex Rabbits", "Silver Fox", "Perlfree", "British Giant", "Satin", "Thuringer"] end
+			    if(animal == "bird") then breed_array = ["Canary", "Finch", "Cockatiel", "Lovebird", "Parakeet", "Parrot", "Caique", "Lory & Lorikeet", "Conure", "African Grey", "Amazon", "Cockatoo", "Ecletus", "Macaw"] end
+			    if(animal == "small") then breed_array = ["Guinea Pig", "Hamster", "Ferrets", "Chinchilla", "Degu", "Gerbil", "Mouse", "Hedgehog"] end
+			    if(animal == "reptile") then breed_array = ["Bearded Dragon", "Iguana", "Turtle", "Tortoise", "Snake", "Python", "Gecko", "Lizard", "Chameleon"] end
 
 				if (age.to_i >= 0)
 					if (age.to_i >= 12)

@@ -10,7 +10,7 @@
 
 <%= form_tag animals_path, :method => 'get' do %>
   <br>
-    <%= select_tag :animal, options_for_select([["Select an Animal", "All"],["Show All", "All"], ["Dog", "dog"], ["Cat", "cat"], ["Hamster", "hamster"]]), onchange: 'dropdown()', class: "form-control" %>
+    <%= select_tag :animal, options_for_select([["Select an Animal", "All"],["Show All", "All"], ["Dog", "dog"], ["Cat", "cat"], ["Rabbit", "rabbit"], ["Bird", "bird"], ["Small/Furry", "small"], ["Reptile", "reptile"]]), onchange: 'dropdown()', class: "form-control" %>
     <select name="breed" id="breed" class="form-control">
       <option value="">Select an Animal First</option>
     </select>
@@ -62,7 +62,7 @@
         </div>
         <% if logged_in? %>
 
-          <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-primary", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
+          <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-success btn-sm", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
         <% end %>
         </div>
       </div>
@@ -81,7 +81,10 @@
 
     if(document.getElementById("animal").value == "dog") temp = ["Retriever", "German Sheperd", "Bulldog", "Beagle", "Yorkshire Terrier", "Poodle", "Boxer", "Rottweiler", "Dachshund", "Pointer"];
     if(document.getElementById("animal").value == "cat") temp = ["Oriental", "American Shorthair", "Birman", "Sphynx", "Ragdoll", "Siamese", "Abyssinian"];
-    if(document.getElementById("animal").value == "hamster") temp = ["Syrian", "Dwarf Campbell Russian", "Dwarf Winter White Russian", "Roborovski Dwarf", "Chinese"];
+    if(document.getElementById("animal").value == "rabbit") temp = ["Flemish Giant", "Jersey Wooley", "Angoras", "Cinnamon", "Rex Rabbits", "Silver Fox", "Perlfree", "British Giant", "Satin", "Thuringer"];
+    if(document.getElementById("animal").value == "bird") temp = ["Canary", "Finch", "Cockatiel", "Lovebird", "Parakeet", "Parrot", "Caique", "Lory & Lorikeet", "Conure", "African Grey", "Amazon", "Cockatoo", "Ecletus", "Macaw"];
+    if(document.getElementById("animal").value == "small") temp = ["Guinea Pig", "Hamster", "Ferrets", "Chinchilla", "Degu", "Gerbil", "Mouse", "Hedgehog"];
+    if(document.getElementById("animal").value == "reptile") temp = ["Bearded Dragon", "Iguana", "Turtle", "Tortoise", "Snake", "Python", "Gecko", "Lizard", "Chameleon"];
 
     temp.sort();
 

@@ -66,10 +66,11 @@ class InterestsController < ApplicationController
   def mail
   @user = User.find(params[:user])
       # Provide an email confirmation if all is good...
-  FriendMailer.new_friend_msg(@user).deliver
+  FriendMailer.new_friend_announcement(@user).deliver
 
   # Now a page confirmation as well...
-  flash[:notice] = "#{@user.nickname} has been added as a friend and notified by email."
+  flash[:notice] = "Your interest has been sent!"
+  redirect_to interests_url
   end
 
 
