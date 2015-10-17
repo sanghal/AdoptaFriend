@@ -7,9 +7,12 @@
   </div>
   <div class="col-md-6">
     <br>
-    <img class="img-responsive" src="/assets/<%= @animal.id %>.jpg" id="picture">
+  <% unless @animal.photo_url.nil? %>
+    <p><%= image_tag @animal.photo_url %></p>
+  <% end %>
+
   </div>
-  <div class="col-md-6">
+  <div class="col-md-7">
     <h3>
       Name: <%= @animal.name %>
       <br>
@@ -28,18 +31,28 @@
       Parent Breed: <%= @animal.parent_breed %>
       <br>
       <br>
-      Personality:
+      Personality:<%= @animal.personality %>
       <br>
       <br>
-      <%= @animal.personality %>
+      Note:<%= @animal.note %>
       <br>
-      <br>
-      Note:
-      <br>
-      <br>
-      <%= @animal.note %>
-      <br>
+      Vaccinations:
+        <table class="table table-hover">
+        <thead>
+        </thead>
+        <tbody>
+        <%@animal.vaccinations.each do |vaccination|%>
+
+        <tr>
+        <td><%= vaccination.name%></td>
+
+        </tr>
+        <% end %>
+
+        </tbody>
+        </table>
     </h4>
+
   </div>
   
 </div>

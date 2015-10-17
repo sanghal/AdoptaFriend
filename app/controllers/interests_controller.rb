@@ -63,6 +63,15 @@ class InterestsController < ApplicationController
     end
   end
 
+  def mail
+  @user = User.find(params[:user])
+      # Provide an email confirmation if all is good...
+  FriendMailer.new_friend_msg(@user).deliver
+
+  # Now a page confirmation as well...
+  flash[:notice] = "#{@user.nickname} has been added as a friend and notified by email."
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

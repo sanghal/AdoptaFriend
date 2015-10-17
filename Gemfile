@@ -36,6 +36,36 @@ gem 'autoprefixer-rails'
 #Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use carrierwave to upload user/animals photos
+gem 'carrierwave'
+
+# Additional gems that are very useful in Rails development
+group :development do
+  gem 'quiet_assets'
+  gem 'thin'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'wirble'
+  gem 'hirb'
+  gem 'faker'
+end
+
+# Gems used only in testing
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'mocha', require: false
+  gem 'simplecov'
+  gem 'turn'
+  gem 'single_test'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'capybara'
+end
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
