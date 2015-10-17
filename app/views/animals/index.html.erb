@@ -23,7 +23,12 @@
   <div class="row">
     <% @animals.each do |animal| %>  
       <div class="col-md-4">
-        <img src="/assets/<%= animal.id %>.jpg" class="img-circle" alt="<%= animal.name %>" width="200" height="200">
+          <% unless animal.photo_url.nil? %>
+           
+            <img src= <%= animal.photo_url %> class="img-circle" alt="<%= animal.name %>" width="200" height="200">
+        <% end %>
+
+        
         <br>
         Name: <%= animal.name %>
         <br>
