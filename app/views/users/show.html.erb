@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= @user.first_name %>'s Profile</h1>
+  </div>
+<div class="col-md-6">
+ <% unless @user.photo_url.nil? %>
+    <p><%= image_tag @user.photo_url %></p>
+  <% end %>
+</div>
 
-<h1><%= @user.first_name %>'s Profile</h1>
-
-
+<div class="col-md-7">
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -62,10 +69,8 @@
   <strong>Active:</strong>
   <%= @user.active %>
 </p>
+</div>
+</div>
 
- <% unless @user.photo_url.nil? %>
-    <p><%= image_tag @user.photo_url %></p>
-  <% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> 
-
