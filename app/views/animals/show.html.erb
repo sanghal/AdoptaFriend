@@ -5,14 +5,16 @@
   <div class="col-md-12">
     <p><h1><%= @animal.name %></h1></p>
   </div>
+
   <div class="col-md-6">
     <br>
-  <% unless @animal.photo_url.nil? %>
-    <p><%= image_tag @animal.photo_url %></p>
-  <% end %>
-
+     <% unless @animal.photo_url.nil? %>
+       <img src= <%= @animal.photo_url %> class="img-circle" width="350" height="350">
+      <% end %>
   </div>
-  <div class="col-md-7">
+
+ 
+  <div class="col-md-6">
     <h3>
       Name: <%= @animal.name %>
       <br>
