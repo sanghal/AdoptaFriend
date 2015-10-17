@@ -24,6 +24,8 @@
         <td><%= interest.animal.name %></td>
 
 
+         <td><%= link_to "Label", {:controller => :interest, :action => :mail, :user => session[:user_id]} %> </td>
+
 
        
 
