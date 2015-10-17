@@ -20,7 +20,7 @@
 
 
 
-        <td><%= link_to 'Send Email', interest %></td>
+        <td><%= link_to "Label", {:controller => :interest, :action => :mail, :user => session[:user_id]} %> </td>
 
         <td><%= link_to 'Delete', edit_interest_path(interest) %></td>
 

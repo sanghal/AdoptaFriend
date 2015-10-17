@@ -31,17 +31,26 @@
       Parent Breed: <%= @animal.parent_breed %>
       <br>
       <br>
-      Personality:
+      Personality:<%= @animal.personality %>
       <br>
       <br>
-      <%= @animal.personality %>
+      Note:<%= @animal.note %>
       <br>
-      <br>
-      Note:
-      <br>
-      <br>
-      <%= @animal.note %>
-      <br>
+      Vaccinations:
+        <table class="table table-hover">
+        <thead>
+        </thead>
+        <tbody>
+        <%@animal.vaccinations.each do |vaccination|%>
+
+        <tr>
+        <td><%= vaccination.name%></td>
+
+        </tr>
+        <% end %>
+
+        </tbody>
+        </table>
     </h4>
 
   </div>

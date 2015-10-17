@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20151016234856) do
 
   create_table "animals", force: true do |t|
@@ -26,6 +27,11 @@ ActiveRecord::Schema.define(version: 20151016234856) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo"
+  end
+
+  create_table "animals_vaccinations", id: false, force: true do |t|
+    t.integer "vaccination_id", null: false
+    t.integer "animal_id",      null: false
   end
 
   create_table "interests", force: true do |t|

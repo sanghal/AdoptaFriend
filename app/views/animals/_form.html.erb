@@ -15,6 +15,15 @@
   	<%= f.input :adoption_fee %>
     <%= f.file_field :photo, :label => "Upload Picture" %>
     <%= f.input :note %>
+    <div class="field">
+      <%= f.label "Vaccination" %><br />
+      <%= f.collection_check_boxes :vaccination_ids, Vaccination.all, :id, :name do |b| %>
+      <div class="collection-check-box">
+      <%= b.check_box %>
+      <%= b.label %>
+    </div>
+    <% end %>
+    </div>
 
 
   <div class="form-actions">
