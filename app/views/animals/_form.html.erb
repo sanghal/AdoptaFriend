@@ -8,7 +8,20 @@
 
 
   	<%= f.input :name %>
-  	<%= f.input :breed %>
+  	<div class="form-group string optional animal_breed"><label class="string optional control-label" for="animal_breed">Breed</label>
+      <select id="animal" onchange="dropdown()">
+        <option value="All">Show All</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="rabbit">Rabbit</option>
+        <option value="bird">Bird</option>
+        <option value="small">Small/Furry</option>
+        <option value="reptile">Reptile</option>  
+      </select>
+      <select name="animal[breed]" id="breed" class="form-control">
+        <option value="">Select an Animal First</option>
+      </select>
+    </div>
   	<%= f.input :age %>
   	<%= f.input :parent_breed %>
   	<%= f.input :personality %>
@@ -33,3 +46,29 @@
 </div>
 
 <% end %>
+
+<script>
+  function dropdown() {
+    $('#breed').empty();
+    var initOption = $('<option>');
+    initOption.attr('value', "").text("Select a breed");
+    $('#breed').append(initOption);
+
+    var temp;
+
+    if(document.getElementById("animal").value == "dog") temp = ["Retriever", "German Sheperd", "Bulldog", "Beagle", "Yorkshire Terrier", "Poodle", "Boxer", "Rottweiler", "Dachshund", "Pointer"];
+    if(document.getElementById("animal").value == "cat") temp = ["Oriental", "American Shorthair", "Birman", "Sphynx", "Ragdoll", "Siamese", "Abyssinian"];
+    if(document.getElementById("animal").value == "rabbit") temp = ["Flemish Giant", "Jersey Wooley", "Angoras", "Cinnamon", "Rex Rabbits", "Silver Fox", "Perlfree", "British Giant", "Satin", "Thuringer"];
+    if(document.getElementById("animal").value == "bird") temp = ["Canary", "Finch", "Cockatiel", "Lovebird", "Parakeet", "Parrot", "Caique", "Lory & Lorikeet", "Conure", "African Grey", "Amazon", "Cockatoo", "Ecletus", "Macaw"];
+    if(document.getElementById("animal").value == "small") temp = ["Guinea Pig", "Hamster", "Ferrets", "Chinchilla", "Degu", "Gerbil", "Mouse", "Hedgehog"];
+    if(document.getElementById("animal").value == "reptile") temp = ["Bearded Dragon", "Iguana", "Turtle", "Tortoise", "Snake", "Python", "Gecko", "Lizard", "Chameleon"];
+
+    temp.sort();
+
+    for(var i = 0; i < temp.length; i++){
+      var newOption = $('<option>');
+      newOption.attr('value', temp[i]).text(temp[i]);
+      $('#breed').append(newOption);
+    }
+  } 
+</script>
