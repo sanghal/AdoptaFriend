@@ -5,11 +5,11 @@
   </div>
 <div class="col-md-6">
  <% unless @user.photo_url.nil? %>
-    <p><%= image_tag @user.photo_url %></p>
+   <img src= <%= @user.photo_url %> class="img-circle" width="350" height="350">
   <% end %>
 </div>
 
-<div class="col-md-7">
+<div class="col-md-6">
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
