@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	has_many :interests
 	has_many :animals
 
+	mount_uploader :photo, PhotoUploader
 	has_secure_password
 
 	validates :email, presence: true, uniqueness: {case_sensitive: false}

@@ -13,6 +13,7 @@
   	<%= f.input :parent_breed %>
   	<%= f.input :personality %>
   	<%= f.input :adoption_fee %>
+    <%= f.file_field :photo, :label => "Upload Picture" %>
     <%= f.input :note %>
     <div class="field">
       <%= f.label "Vaccination" %><br />
@@ -26,7 +27,7 @@
 
 
   <div class="form-actions">
-    <%= f.button :submit, label = "Create list"%>
+    <%= f.button :submit, label = "List Animal"%>
   </div>
 </div>
 </div>

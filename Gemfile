@@ -36,6 +36,8 @@ gem 'autoprefixer-rails'
 #Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use carrierwave to upload user/animals photos
+gem 'carrierwave'
 
 # Additional gems that are very useful in Rails development
 group :development do
