@@ -1,34 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Animals', animals_path %>/<%= @animal.name %>
+<div class="panel panel-default">
+<div class="panel-body">
 <div class="row">
-  <div class="col-md-12">
-    <p><h1><%= @animal.name %></h1></p>
-  </div>
 
   <div class="col-md-6">
     <br>
      <% unless @animal.photo_url.nil? %>
-       <img src= <%= @animal.photo_url %> class="img-circle" width="350" height="350">
+       <center><img src= <%= @animal.photo_url %> class="img-circle" width="350" height="350"></center>
       <% end %>
   </div>
 
  
   <div class="col-md-6">
-    <h3>
-      Name: <%= @animal.name %>
+    <h2><%= @animal.name %>'s Profile</h2>
       <br>
-      <br>
-      Breed: <%= @animal.breed %>
-      <br>
-      <br>
+
       Age: <%= @animal.age %>
       <br>
       <br>
-      Adoption fee: <%= @animal.adoption_fee %>
+      <%if @animal.adoption_fee != '' %>
+        Adoption fee: $<%= @animal.adoption_fee %>
+      <%else%>
+        Adoption fee: Free
+      <%end%>
       <br>
       <br>
-    </h3>
+   
     <h4>
       Parent Breed: <%= @animal.parent_breed %>
       <br>
@@ -56,10 +55,18 @@
         </tbody>
         </table>
     </h4>
+    <% if @animal.user.id == current_user.id %>
+      <%= link_to 'Edit', edit_animal_path(@animal), class: "btn btn-default"  %>
+    <% end %>
+
+    <% if logged_in? %>
+    <%= button_to "Interested!", {:controller => "interests", :action => "create", :animal => @animal.id, :user => session[:user_id]}, class: "btn btn-success btn-sm", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
+    <% end %>
 
   </div>
   
 </div>
 
-<%= link_to 'Edit', edit_animal_path(@animal) %> |
-<%= link_to 'Back', animals_path %>
+
+  </div>
+  </div>

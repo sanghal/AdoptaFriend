@@ -72,7 +72,7 @@
         </div>
         <% if logged_in? %>
 
-          <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-success btn-sm", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
+          <%= button_to "Interested!", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-success btn-sm", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
         <% end %>
         </div>
       </div>
