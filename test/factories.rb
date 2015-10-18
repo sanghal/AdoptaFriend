@@ -3,7 +3,9 @@ FactoryGirl.define do
 
 
 	factory :vaccination do
-		name ""
+		
+	end
+	factory :user do
 		
 	end
 end
