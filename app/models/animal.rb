@@ -7,8 +7,7 @@ class Animal < ActiveRecord::Base
 
 	mount_uploader :photo, PhotoUploader
 
-	validates_presence_of :user_id
-	validates_numericality_of :adoption_fee, only_integer: true, greater_than_or_equal_to: 0
+	validates_presence_of :user_id, :name, :vaccination_ids, :breed, :age
 	validates_presence_of :photo
 
 	def self.search(animal, breed, age)

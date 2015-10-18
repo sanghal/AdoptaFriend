@@ -46,16 +46,6 @@
 </p>
 
 <p>
-  <strong>Phone number:</strong>
-  <%= @user.phone_number %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
-
-<p>
   <strong>Residence info:</strong>
   <%= @user.residence_info %>
 </p>
@@ -64,13 +54,11 @@
   <strong>About:</strong>
   <%= @user.about %>
 </p>
+<% if @user.id == current_user.id %>
+<%= link_to 'Edit', edit_user_path(@user),class: "btn btn-default"  %> 
+<% end %>
 
-<p>
-  <strong>Active:</strong>
-  <%= @user.active %>
-</p>
 </div>
 </div>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> 
