@@ -1,0 +1,10 @@
+<% unless @active_animals.empty? %>
+  <div>
+    <h3>Your Animals Up for Adoption</h3>
+    <ul>
+      <% @active_animals.each do |animal| %>
+        <li><%= link_to animal.name, animal%></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -10,6 +10,7 @@ class CreateAnimals < ActiveRecord::Migration
       t.text :personality
       t.string :adoption_fee
       t.text :note
+      t.boolean :active, default: true
 
       t.timestamps
     end

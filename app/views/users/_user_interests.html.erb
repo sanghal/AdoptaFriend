@@ -1,0 +1,10 @@
+<% unless @user_interests.empty? %>
+  <div>
+    <h5>Your Interests</h5>
+    <ul>
+      <% @user_interests.each do |interest| %>
+        <li><%= link_to interest.animal.name, interest.animal%></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
