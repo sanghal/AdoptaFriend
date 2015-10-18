@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-12">
-    <h1><%= @user.first_name %>'s Profile</h1>
+    <h1><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
   </div>
 <div class="col-md-6">
  <% unless @user.photo_url.nil? %>
@@ -10,50 +10,23 @@
 </div>
 
 <div class="col-md-6">
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+<h4>Personal Details</h4>
+<p>Age:<%= @user.age %></p>
+<p>Gender:<%= @user.gender %></p>
+<p>Family Info:<%= @user.family_info %></p>
+<p>Pet Info:<%= @user.pet_info %></p>
+<p>Residence Info:<%= @user.residence_info %></p>
+<p>About:<%= @user.about %></p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
+<br>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @user.gender %>
-</p>
+<h4>Contact Details</h4>
+<p>Email:<%= @user.email %></p>
+<p>Phone Number: <%= @user.phone_number %></p>
 
-<p>
-  <strong>Family info:</strong>
-  <%= @user.family_info %>
-</p>
 
-<p>
-  <strong>Pet info:</strong>
-  <%= @user.pet_info %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Residence info:</strong>
-  <%= @user.residence_info %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @user.about %>
-</p>
+<br><br>
 <% if @user.id == current_user.id %>
 <%= link_to 'Edit', edit_user_path(@user),class: "btn btn-default"  %> 
 <% end %>
@@ -62,11 +35,41 @@
 </div>
 
 <div>
-
 <br><br><br>
-<%= render partial: 'active_user_animals' %>
-<%= render partial: 'inactive_user_animals' %>
-<%= render partial: 'user_interests' %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Your Animals up for Adoption</h3>
+  </div>
+  <div class="panel-body">
+    <%= render partial: 'active_user_animals' %>
+  </div>
+</div>
+
+<% if not @inactive_animals.empty? %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Your Adopted Animals</h3>
+    </div>
+    <div class="panel-body">
+     <%= render partial: 'inactive_user_animals' %>
+    </div>
+  </div>
+<%end%>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Animals you're Interested in</h3>
+  </div>
+  <div class="panel-body">
+    <%= render partial: 'user_interests' %>
+  </div>
+</div>
+
+
+
+
+
 </div>
 
 

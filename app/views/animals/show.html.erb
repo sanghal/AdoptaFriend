@@ -15,7 +15,7 @@
 
  
   <div class="col-md-6">
-    <h2>Adopt <%= @animal.name %>!</h2>
+    <h2><%= @animal.name %></h2>
     <img class="img" src="/assets/age.png" width="20" height="20">          
         <%= @animal.age %> 
    <img class="img" src="/assets/money.png" width="25" height="25"><%if @animal.adoption_fee != '' %>
