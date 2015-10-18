@@ -16,8 +16,6 @@ namespace :db do
 
 	    # Step 1: Create some users 
 
-
-
 	    MLV = FactoryGirl.create(:vaccination, name: "Canine Distemper (MLV)")
 	    Hepetitis = FactoryGirl.create(:vaccination, name: "Hepetitis")
 	    Leptosporosis = FactoryGirl.create(:vaccination, name: "Leptosporosis")
@@ -26,6 +24,12 @@ namespace :db do
 	    Leukemia = FactoryGirl.create(:vaccination, name: "Leukemia")
 	    Deworming = FactoryGirl.create(:vaccination, name: "Deworming ")
 	    CanineFlu = FactoryGirl.create(:vaccination, name: "Canine Flu")
+
+	   	Alex = FactoryGirl.create(:user, last_name: "Kim", phone_number: "1232323333", age: 23, gender: "male", password:"alex", password_confirmation: "alex" , email:"alex@gmail.com", first_name: "Alex")
+	   	Cindy = FactoryGirl.create(:user, last_name: "Lai", phone_number: "1232323333", age: 23, gender: "female", password:"cindy", password_confirmation: "cindy" , email:"cindy@gmail.com", first_name: "Cindy")
+	   	Sangha = FactoryGirl.create(:user, last_name: "Lee", phone_number: "1232323333", age: 23, gender: "female", password:"sangha", password_confirmation: "sangha" , email:"sangha@gmail.com", first_name: "Sangha")
+
+
 
 	end
 end

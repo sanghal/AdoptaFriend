@@ -1,21 +1,31 @@
-<h1>All Animals</h1>
 
 <br>
 <% if logged_in? %>
   <div class="btn-group">
-    <%= link_to 'New Animal', new_animal_path, class: "btn btn-lg btn-success" %>
+    <%= link_to 'New Animal', new_animal_path, class: "btn btn-default" %>
   </div>
 <% end %>
 <br>
 
 <%= form_tag animals_path, :method => 'get' do %>
   <br>
+  <div class="row">
+  <div class="col-md-3">
     <%= select_tag :animal, options_for_select([["Select an Animal", "All"],["Show All", "All"], ["Dog", "dog"], ["Cat", "cat"], ["Rabbit", "rabbit"], ["Bird", "bird"], ["Small/Furry", "small"], ["Reptile", "reptile"]]), onchange: 'dropdown()', class: "form-control" %>
+    </div>
+    <div class="col-md-3">
     <select name="breed" id="breed" class="form-control">
-      <option value="">Select an Animal First</option>
+      <option value="">Select an Animal First</option> 
     </select>
+    </div>
+    <div class="col-md-3">
     <%= select_tag :age, options_for_select([['Any Age', -1],['0~3', 3], ['4~7', 7], ['8~11', 11], ['Other', 12]]), class: "form-control" %>
-    <%= submit_tag "Search" %>
+    </div>
+
+    <div class="col-md-3">
+    <%= submit_tag "Search", class: "btn btn-success"  %>
+    </div>
+    </div>
   <br>
 <% end %>
 
@@ -36,7 +46,7 @@
         <br>
         Breed: <%= animal.breed %>
         <br>
-        Age: <%= animal.age %>
+        Age (in years): <%= animal.age %> 
         <br>
         Date Added: <%= animal.date %>
         <br>

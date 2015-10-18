@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Animals', animals_path %>/<%= @animal.name %>
 <div class="row">
   <div class="col-md-12">
     <p><h1><%= @animal.name %></h1></p>
@@ -60,6 +59,6 @@
   </div>
   
 </div>
-
-<%= link_to 'Edit', edit_animal_path(@animal) %> |
-<%= link_to 'Back', animals_path %>
+<% if @animal.user.id == current_user.id %>
+<%= link_to 'Edit', edit_animal_path(@animal),class: "btn btn-default"  %> 
+<% end %>
