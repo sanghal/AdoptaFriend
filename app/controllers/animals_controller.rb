@@ -7,7 +7,7 @@ class AnimalsController < ApplicationController
     if(params[:animal])
       @animals = Animal.search(params[:animal],params[:breed], params[:age])
     else
-      @animals = Animal.all
+      @animals = Animal.active
     end
   end
 
