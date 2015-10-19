@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
-
 
   # GET /users/1
   # GET /users/1.json

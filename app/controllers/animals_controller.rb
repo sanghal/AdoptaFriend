@@ -1,6 +1,5 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
 
   # GET /animals
   # GET /animals.json

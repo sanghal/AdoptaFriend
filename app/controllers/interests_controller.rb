@@ -65,6 +65,9 @@ class InterestsController < ApplicationController
 
   def mail
     @user = User.find(params[:user])
+    @animal = Animal.find(params[:animal])
+    @animal.active = false
+    @animal.save
         # Provide an email confirmation if all is good...
     FriendMailer.new_friend_announcement(@user).deliver
 
