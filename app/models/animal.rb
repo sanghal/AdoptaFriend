@@ -7,7 +7,7 @@ class Animal < ActiveRecord::Base
 	mount_uploader :photo, PhotoUploader
 
 	validates_presence_of :user_id, :name, :vaccination_ids, :breed, :age
-	#validates_presence_of :photo
+	validates_presence_of :photo
 
 	scope :alphabetical, -> { order('name') }
 	scope :active, -> { where(active: true) }

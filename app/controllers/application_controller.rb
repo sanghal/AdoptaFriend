@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Try Again"
+    flash[:error] = "You do not have access to this page"
     redirect_to home_path
   end
 end
