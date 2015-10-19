@@ -17,10 +17,10 @@ class Animal < ActiveRecord::Base
 		if (breed != "")
 			if (age.to_i >= 0)
 				if (age.to_i >= 12)
-					self.where("breed LIKE ? AND age >= ?", "%#{breed}", age.to_i)
+					self.where("breed LIKE ? AND age >= ? AND active = true", "%#{breed}", age.to_i)
 				else
 					subage = age.to_i - 3
-					self.where("breed LIKE ? AND (age >= ? AND age <= ?)", "%#{breed}%", subage, age.to_i)
+					self.where("breed LIKE ? AND (age >= ? AND age <= ?) AND active = true", "%#{breed}%", subage, age.to_i)
 				end
 			else
 				self.where("breed LIKE ?", "%#{breed}%")
@@ -54,7 +54,7 @@ class Animal < ActiveRecord::Base
 						self.where("age >= ? AND age <= ?", subage, age.to_i)
 					end
 				else
-					self.all
+					self.where("active = true")
 				end
 			end
 		end

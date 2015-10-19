@@ -1,16 +1,14 @@
 
 
-<div class="container">
-<div id = "animalform">
-<h2> Put an animal up for adoption </h2>
+
 <%= simple_form_for(@animal) do |f| %>
   <%= f.error_notification %>
 
 
-  	<%= f.input :name %>
-  	<div class="form-group string optional animal_breed"><label class="string optional control-label" for="animal_breed">Breed</label>
-      <select id="animal" onchange="dropdown()">
-        <option value="All">Show All</option>
+  	<%= f.input :name %>,
+  	<div class="form-group string optional animal_breed"><label class="string optional control-label" for="animal_breed">*Breed</label>
+      <select id="animal" class="form-control" onchange="dropdown()">
+        <option value="">Select an Animal</option>
         <option value="dog">Dog</option>
         <option value="cat">Cat</option>
         <option value="rabbit">Rabbit</option>
