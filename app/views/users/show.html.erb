@@ -12,17 +12,33 @@
 <div class="col-md-6">
 
 <h4>Personal Details</h4>
-<p>Age:<%= @user.age %></p>
-<p>Gender:<%= @user.gender %></p>
-<p>Family Info:<%= @user.family_info %></p>
-<p>Pet Info:<%= @user.pet_info %></p>
-<p>Residence Info:<%= @user.residence_info %></p>
-<p>About:<%= @user.about %></p>
+<p>Age: <%= @user.age %></p>
+<p>Gender: <%= @user.gender %></p>
+<p>About: <%= @user.about %></p>
+<p>Family Info:
+  <%if not @user.family_info.blank? %>
+    <%= @user.family_info %>
+  <%else%>
+   No family info to display at this time. 
+<%end%>
+</p>
+<p>Pet Info: <%if not @user.pet_info.blank? %>
+    <%= @user.pet_info %>
+  <%else%>
+   No pet info to display at this time. 
+<%end%></p>
+
+<p>Residence Info:<%if not @user.residence_info.blank? %>
+    <%= @user.residence_info %>
+  <%else%>
+   No residence info to display at this time. 
+<%end%></p>
+
 
 <br>
 
 <h4>Contact Details</h4>
-<p>Email:<%= @user.email %></p>
+<p>Email: <%= @user.email %></p>
 <p>Phone Number: <%= @user.phone_number %></p>
 
 
