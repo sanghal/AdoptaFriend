@@ -29,7 +29,7 @@
               <td> <img src= <%= interest.animal.photo_url %> class="img-circle" width="50" height="50"></td>
             <% end %>
 
-            <td><%= link_to "Email", {:controller => "interests", :action => "mail",  :user => current_user.id, :animal => interest.animal.id} %> </td>
+            <td><%= link_to "Email", {:controller => "interests", :action => "mail",  :user => current_user.id } %> </td>
            
 
             <td><%= link_to 'Delete', edit_interest_path(interest) %></td>
