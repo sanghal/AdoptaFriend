@@ -33,7 +33,7 @@ class InterestsController < ApplicationController
         format.html { redirect_to :back, notice: 'You sent an interest to the animal' }
         format.json { head :no_content }
       else
-        format.html { redirect_to animals_url, notice: @interest.errors }
+        format.html { redirect_to animals_url, notice: @interest.errors.full_messages }
         format.json { head :no_content }
       end
     end
@@ -47,7 +47,7 @@ class InterestsController < ApplicationController
         format.html { redirect_to animals_url, notice: 'You sent an interest to the animal' }
         format.json { head :no_content }
       else
-        format.html { redirect_to animals_url, notice: @interest.errors }
+        format.html { redirect_to animals_url, notice: @interest.errors.full_messages }
         format.json { head :no_content }
       end
     end
