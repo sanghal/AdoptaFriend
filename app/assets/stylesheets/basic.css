@@ -1,9 +1,15 @@
 .jumbotron{
 color:white;
 text-align: center;
-height: 500px;
+height: 600px;
+background-color: transparent !important;
+}
+
+body.home.index{
 background: url('/assets/cover.jpg') no-repeat;
 background-size: 100% auto;
+
+
 }
 
 #ban{
@@ -32,6 +38,11 @@ background-size: 100% auto;
 }
 
 body.animals.new{
-	background: url('/assets/1.jpg') no-repeat;
+	background: url('/assets/background2.jpg') no-repeat;
+	background-size: 100% auto;
+}
+
+body.animals.create{
+	background: url('/assets/background.jpg') no-repeat;
 	background-size: 100% auto;
 }

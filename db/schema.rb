@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20151016234856) do
     t.date     "date"
     t.string   "name"
     t.string   "breed"
-    t.integer  "age"
+    t.integer "age"
     t.string   "parent_breed"
     t.text     "personality"
     t.string   "adoption_fee"

@@ -22,11 +22,11 @@
         <option value="">Select an Animal First</option>
       </select>
     </div>
-  	<%= f.input :age %>
+  	<%= f.input :age , placeholder: 'in year'%>
   	<%= f.input :parent_breed %>
-  	<%= f.input :personality %>
+  	<%= f.input :personality , placeholder: 'Quiet, Likes to eat, Does not like outdoors'%>
   	<%= f.input :adoption_fee %>
-    <%= f.file_field :photo, :label => "Upload Picture" %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :note %>
     <div class="field">
       <%= f.label "Vaccination" %><br />

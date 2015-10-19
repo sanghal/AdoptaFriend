@@ -7,11 +7,8 @@ class Animal < ActiveRecord::Base
 
 	mount_uploader :photo, PhotoUploader
 
-	validates_presence_of :user_id
-	validates_presence_of :name
-	validates_presence_of :breed
-	validates_presence_of :age
-	validates_numericality_of :age, only_integer: true, greater_than_or_equal_to: 0
+	validates_presence_of :user_id, :name, :vaccination_ids, :breed, :age
+	validates_presence_of :photo
 
 	#scopes
 	scope :active, -> { where(active: true) }

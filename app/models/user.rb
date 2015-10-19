@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
 	validates_confirmation_of :password, message: "does not match"
 	validates_format_of :email, with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov))\z/i, message: "is not a valid format"
 
-
 	# scopes
 	scope :alphabetical, -> { order('last_name, first_name') }
 	scope :active, -> { where(active: true) }
