@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019002621) do
+ActiveRecord::Schema.define(version: 20151016234856) do
 
   create_table "animals", force: true do |t|
     t.integer  "user_id"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20151019002621) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo"
-    t.boolean  "active"
   end
 
   create_table "animals_vaccinations", id: false, force: true do |t|
