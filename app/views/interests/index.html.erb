@@ -6,33 +6,36 @@
 
   <tbody>
 
-
-    <% current_user.animals.map{|i| i.interests}.each do |interested| %>
-    <%interested.each do |interest|%>
-    
+    <% if current_user.animals.active.empty? %>
       <tr>
-       <% unless interest.user.photo_url.nil? %>
-         <td> <img src= <%= interest.user.photo_url %> class="img-circle" width="50" height="50"></td>
-      <% end %>
-
-
-        <td><%= link_to interest.user.first_name, interest.user %></td>
-   
-        <td>is interested in your </td>
-
-        <td><%= link_to interest.animal.name, interest.animal %></td>
-
-        <% unless interest.animal.photo_url.nil? %>
-        <td> <img src= <%= interest.animal.photo_url %> class="img-circle" width="50" height="50"></td>
-        <% end %>
-
-        <td><%= link_to "Email", {:controller => "interests", :action => "mail",  :user => current_user.id} %> </td>
-       
-
-        <td><%= link_to 'Delete', edit_interest_path(interest) %></td>
-
+        <td> Currently, there are no interests </td>
       </tr>
     <% end %>
+    <% current_user.animals.active.map{|i| i.interests}.each do |interested| %>
+      <% interested.each do |interest|%>
+          <tr>
+           <% unless interest.user.photo_url.nil? %>
+             <td> <img src= <%= interest.user.photo_url %> class="img-circle" width="50" height="50"></td>
+           <% end %>
+
+
+            <td><%= link_to interest.user.first_name, interest.user %></td>
+       
+            <td>is interested in your </td>
+
+            <td><%= link_to interest.animal.name, interest.animal %></td>
+
+            <% unless interest.animal.photo_url.nil? %>
+              <td> <img src= <%= interest.animal.photo_url %> class="img-circle" width="50" height="50"></td>
+            <% end %>
+
+            <td><%= link_to "Email", {:controller => "interests", :action => "mail",  :user => current_user.id } %> </td>
+           
+
+            <td><%= link_to 'Delete', edit_interest_path(interest) %></td>
+
+          </tr>
+      <% end %>
     <% end %>
 
 

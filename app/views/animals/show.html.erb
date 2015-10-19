@@ -74,13 +74,11 @@
    <br><br>
 
     <% if logged_in? %>
-    <%= button_to "Interested!", {:controller => "interests", :action => "create", :animal => @animal.id, :user => session[:user_id]}, class: "btn btn-success btn-med", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
-
-
-    <br>
-     <% if @animal.user.id == current_user.id %>
-      <%= link_to 'Edit', edit_animal_path(@animal), class: "btn btn-default"  %>
-    <% end %>
+      <%= button_to "Interested!", {:controller => "interests", :action => "create", :animal => @animal.id, :user => session[:user_id]}, class: "btn btn-success btn-med", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
+      <br>
+      <% if @animal.user.id == current_user.id %>
+        <%= link_to 'Edit', edit_animal_path(@animal), class: "btn btn-default"  %>
+      <% end %>
     <% end %>
   </div>
   
