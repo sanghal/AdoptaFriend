@@ -19,19 +19,19 @@
   <%if not @user.family_info.blank? %>
     <%= @user.family_info %>
   <%else%>
-   No family info to display at this time. 
+   Not available right now.  
 <%end%>
 </p>
 <p>Pet Info: <%if not @user.pet_info.blank? %>
     <%= @user.pet_info %>
   <%else%>
-   No pet info to display at this time. 
+   Not available right now. 
 <%end%></p>
 
 <p>Residence Info:<%if not @user.residence_info.blank? %>
     <%= @user.residence_info %>
   <%else%>
-   No residence info to display at this time. 
+   Not available right now.
 <%end%></p>
 
 
@@ -43,9 +43,11 @@
 
 
 <br><br>
-<% if @user.id == current_user.id %>
-<%= link_to 'Edit', edit_user_path(@user),class: "btn btn-default"  %> 
-<% end %>
+<% if logged_in? %>
+  <% if @user.id == current_user.id %>
+  <%= link_to 'Edit', edit_user_path(@user),class: "btn btn-default"  %> 
+  <% end %>
+<%end%>
 
 </div>
 </div>

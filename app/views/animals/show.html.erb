@@ -37,10 +37,21 @@
 
       <br>
       <br>
-    <h4>Personality:</h4><%= @animal.personality %>
+    <h4>Personality:</h4>
+      <%if not @animal.personality.blank? %>
+        <%= @animal.personality %>
+      <%else%>
+        Not available right now
+      <%end%>
       <br>
       <br>
-    <h4>Note:</h4><%= @animal.note %>
+    <h4>Note:</h4>
+      <%if not @animal.note.blank? %>
+        <%= @animal.note %>
+      <%else%>
+        Not available right now
+      <%end%>
+
       <br>
       <br>
     <h4>Vaccinations:</h4>
