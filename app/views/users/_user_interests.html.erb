@@ -1,0 +1,13 @@
+<% unless @user_interests.empty? %>
+  <div>
+
+    <table>
+      <% @user_interests.each do |interest| %>
+      <tr>
+      	<td><img src= <%= interest.animal.photo_url %> class="img-circle" width="50" height="50">
+       <%= link_to interest.animal.name, interest.animal%></td>
+       </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>

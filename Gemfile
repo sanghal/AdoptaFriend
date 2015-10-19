@@ -39,6 +39,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use carrierwave to upload user/animals photos
 gem 'carrierwave'
 
+# Use a gem for handling pagination
+gem 'will_paginate'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'

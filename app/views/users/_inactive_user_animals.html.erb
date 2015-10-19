@@ -1,0 +1,13 @@
+<% unless @inactive_animals.empty? %>
+  <div>
+    
+    <table>
+      <% @ainctive_animals.each do |animal| %>
+      <tr>
+        <td><img src= <%= animal.photo_url %> class="img-circle" width="50" height="50">
+        <%= link_to animal.name, animal%></td>
+        </tr>
+      <% end %>
+    </table>>
+  </div>
+<% end %>
