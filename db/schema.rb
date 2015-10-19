@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20151019002621) do
     t.text     "personality"
     t.string   "adoption_fee"
     t.text     "note"
+    t.boolean  "active",       default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo"

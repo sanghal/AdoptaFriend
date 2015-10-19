@@ -1,43 +1,50 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Animals', animals_path %>/<%= @animal.name %>
+
 <div class="row">
-  <div class="col-md-12">
-    <p><h1><%= @animal.name %></h1></p>
-  </div>
+
   <div class="col-md-6">
     <br>
-  <% unless @animal.photo_url.nil? %>
-    <p><%= image_tag @animal.photo_url %></p>
-  <% end %>
+     <% unless @animal.photo_url.nil? %>
+       <center><img src= <%= @animal.photo_url %> class="img-circle" width="350" height="350"></center>
+      <% end %>
+
 
   </div>
-  <div class="col-md-7">
-    <h3>
-      Name: <%= @animal.name %>
+
+ 
+  <div class="col-md-6">
+    <h2><%= @animal.name %></h2>
+    <img class="img" src="/assets/age.png" width="20" height="20">          
+        <%= @animal.age %> 
+   <img class="img" src="/assets/money.png" width="25" height="25"><%if @animal.adoption_fee != '' %>
+        $<%= @animal.adoption_fee %>
+      <%else%>
+        Free!
+      <%end%>
+     
+      
       <br>
       <br>
-      Breed: <%= @animal.breed %>
+
+    <h4>Parent Breed:</h4> 
+      <%if @animal.parent_breed != '' %>
+        <%= @animal.parent_breed %>
+      <%else%>
+        Not available right now
+      <%end%>
+
       <br>
       <br>
-      Age: <%= @animal.age %>
+    <h4>Personality:</h4><%= @animal.personality %>
       <br>
       <br>
-      Adoption fee: <%= @animal.adoption_fee %>
+    <h4>Note:</h4><%= @animal.note %>
       <br>
       <br>
-    </h3>
-    <h4>
-      Parent Breed: <%= @animal.parent_breed %>
-      <br>
-      <br>
-      Personality:<%= @animal.personality %>
-      <br>
-      <br>
-      Note:<%= @animal.note %>
-      <br>
-      <br>
-      Vaccinations:
-      <br>
+    <h4>Vaccinations:</h4>
+    
         <table class="table table-hover">
         <thead>
         </thead>
@@ -52,11 +59,19 @@
 
         </tbody>
         </table>
-    </h4>
+    
+   <br><br>
+
+    <% if logged_in? %>
+    <%= button_to "Interested!", {:controller => "interests", :action => "create", :animal => @animal.id, :user => session[:user_id]}, class: "btn btn-success btn-med", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
+    <% end %>
+
+    <br>
+     <% if @animal.user.id == current_user.id %>
+      <%= link_to 'Edit', edit_animal_path(@animal), class: "btn btn-default"  %>
+    <% end %>
 
   </div>
   
 </div>
-<% if @animal.user.id == current_user.id %>
-<%= link_to 'Edit', edit_animal_path(@animal),class: "btn btn-default"  %> 
-<% end %>
+

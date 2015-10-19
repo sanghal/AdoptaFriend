@@ -1,6 +1,5 @@
 class Animal < ActiveRecord::Base
 
-	has_many :users, through: :interests
 	has_many :interests
 	belongs_to :user
 	has_and_belongs_to_many :vaccinations
@@ -9,9 +8,10 @@ class Animal < ActiveRecord::Base
 
 	validates_presence_of :user_id, :name, :vaccination_ids, :breed, :age
 	validates_presence_of :photo
-
-	#scopes
+	
+	scope :alphabetical, -> { order('name') }
 	scope :active, -> { where(active: true) }
+	scope :inactive, -> { where(active: false) }
 
 	def self.search(animal, breed, age)
 		if (breed != "")

@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @active_animals = @user.animals.active.alphabetical
+    @inactive_animals = @user.animals.inactive.alphabetical
+    @user_interests = @user.interests.all
   end
 
   # GET /users/new

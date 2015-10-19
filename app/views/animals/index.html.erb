@@ -40,8 +40,7 @@
              <img src="http://placehold.it/500x500&text=No Picture" class="img-circle" alt="<%= animal.name %>" width="200" height="200">
          
         <% end %>
-
-        
+        <br>
         <br>
         Name: <%= animal.name %>
         <br>
@@ -50,6 +49,7 @@
         Age (in years): <%= animal.age %> 
         <br>
         Date Added: <%= animal.date %>
+        <br>
         <br>
         <div class="col-md-4">
           <p><a class="btn btn-info btn-sm" href="/animals/<%= animal.id %>" role="button">View Profile</a></p>
@@ -72,7 +72,7 @@
         </div>
         <% if logged_in? %>
 
-          <%= button_to "Interest", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-success btn-sm", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
+          <%= button_to "Interested!", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-success btn-sm", :data => {:toggle=>"modal", :target =>".bs-example-modal-sm"}  %>
         <% end %>
         </div>
       </div>
