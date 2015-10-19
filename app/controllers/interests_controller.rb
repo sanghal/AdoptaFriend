@@ -1,6 +1,5 @@
 class InterestsController < ApplicationController
   before_action :set_interest, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
 
   # GET /interests
   # GET /interests.json
