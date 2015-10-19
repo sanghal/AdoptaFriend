@@ -7,7 +7,7 @@ class AnimalsController < ApplicationController
     if(params[:animal])
       @animals = Animal.search(params[:animal],params[:breed], params[:age])
     else
-      @animals = Animal.all
+      @animals = Animal.active
     end
   end
 
@@ -74,6 +74,6 @@ class AnimalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
-      params.require(:animal).permit(:user_id, :date, :name, :breed, :age, :parent_breed, :personality, :adoption_fee, :note, :photo, vaccination_ids:[])
+      params.require(:animal).permit(:user_id, :date, :name, :breed, :age, :parent_breed, :personality, :adoption_fee, :note, :photo, :active, vaccination_ids:[])
     end
 end
