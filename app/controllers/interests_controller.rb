@@ -1,5 +1,6 @@
 class InterestsController < ApplicationController
   before_action :set_interest, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /interests
   # GET /interests.json
@@ -33,7 +34,7 @@ class InterestsController < ApplicationController
         format.html { redirect_to :back, notice: 'You sent an interest to the animal' }
         format.json { head :no_content }
       else
-        format.html { redirect_to animals_url, notice: 'There was an error' }
+        format.html { redirect_to animals_url, notice: @interest.errors }
         format.json { head :no_content }
       end
     end
@@ -47,7 +48,7 @@ class InterestsController < ApplicationController
         format.html { redirect_to animals_url, notice: 'You sent an interest to the animal' }
         format.json { head :no_content }
       else
-        format.html { redirect_to animals_url, notice: 'There was an error' }
+        format.html { redirect_to animals_url, notice: @interest.errors }
         format.json { head :no_content }
       end
     end
@@ -64,13 +65,16 @@ class InterestsController < ApplicationController
   end
 
   def mail
-  @user = User.find(params[:user])
-      # Provide an email confirmation if all is good...
-  FriendMailer.new_friend_announcement(@user).deliver
+    @user = User.find(params[:user])
+    @animal = Animal.find(params[:animal])
+    @animal.active = false
+    @animal.save
+        # Provide an email confirmation if all is good...
+    FriendMailer.new_friend_announcement(@user).deliver
 
-  # Now a page confirmation as well...
-  flash[:notice] = "Your interest has been sent!"
-  redirect_to interests_url
+    # Now a page confirmation as well...
+    flash[:notice] = "Your interest has been sent!"
+    redirect_to interests_url
   end
 
 
