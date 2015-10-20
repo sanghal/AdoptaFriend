@@ -4,8 +4,9 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
+    @all_animals = Animal.active
     if(params[:animal])
-      @animals = Animal.search(params[:animal],params[:breed], params[:age])
+      @animals = Animal.search(params[:animal],params[:breed], params[:age]).active
     else
       @animals = Animal.active
     end
