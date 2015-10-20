@@ -12,24 +12,42 @@
 <div class="col-md-6">
 
 <h4>Personal Details</h4>
-<p>Age:<%= @user.age %></p>
-<p>Gender:<%= @user.gender %></p>
-<p>Family Info:<%= @user.family_info %></p>
-<p>Pet Info:<%= @user.pet_info %></p>
-<p>Residence Info:<%= @user.residence_info %></p>
-<p>About:<%= @user.about %></p>
+<p>Age: <%= @user.age %></p>
+<p>Gender: <%= @user.gender %></p>
+<p>About: <%= @user.about %></p>
+<p>Family Info:
+  <%if not @user.family_info.blank? %>
+    <%= @user.family_info %>
+  <%else%>
+   Not available at this time.  
+<%end%>
+</p>
+<p>Pet Info: <%if not @user.pet_info.blank? %>
+    <%= @user.pet_info %>
+  <%else%>
+   Not available at this time. 
+<%end%></p>
+
+<p>Residence Info:<%if not @user.residence_info.blank? %>
+    <%= @user.residence_info %>
+  <%else%>
+   Not available at this time.
+<%end%></p>
+
 
 <br>
 
 <h4>Contact Details</h4>
-<p>Email:<%= @user.email %></p>
+<p>Email: <%= @user.email %></p>
 <p>Phone Number: <%= @user.phone_number %></p>
 
 
 <br><br>
-<% if @user.id == current_user.id %>
-<%= link_to 'Edit', edit_user_path(@user),class: "btn btn-default"  %> 
-<% end %>
+<% if logged_in? %>
+  <% if @user.id == current_user.id %>
+  <%= link_to 'Edit', edit_user_path(@user),class: "btn btn-default"  %> 
+  <% end %>
+<%end%>
 
 </div>
 </div>
@@ -49,7 +67,7 @@
 <% if not @inactive_animals.empty? %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Your Adopted Animals</h3>
+      <h3 class="panel-title">Your Animals not available for Adoption</h3>
     </div>
     <div class="panel-body">
      <%= render partial: 'inactive_user_animals' %>
