@@ -31,37 +31,48 @@
 
 <br>
   <div class="row">
-    <% @animals.each do |animal| %>  
-      <div class="col-md-4">
+    <% if @animals.empty? %>
+      <% if @all_animals.empty? %>
+        <div class="col-md-4">
+          Sorry! No animals are currently available.
+        </div>
+      <% else %>
+        <div class="col-md-4">
+          Sorry! No animals currently meet your search criteria. Please try again.
+        </div>
+      <% end %>  
+    <% else %> 
+      <% @animals.each do |animal| %>  
+        <div class="col-md-4">
           <% if not animal.photo_url.nil? %>
-           
-            <img src= <%= animal.photo_url %> class="img-circle" alt="<%= animal.name %>" width="200" height="200">
+             
+          <img src= <%= animal.photo_url %> class="img-circle" alt="<%= animal.name %>" width="200" height="200">
           <%else%>
-             <img src="http://placehold.it/500x500&text=No Picture" class="img-circle" alt="<%= animal.name %>" width="200" height="200">
-         
-        <% end %>
-        <br>
-        <br>
-        Name: <%= animal.name %>
-        <br>
-        Breed: <%= animal.breed %>
-        <br>
-        Age (in years): <%= animal.age %> 
-        <br>
-        Date Added: <%= animal.date %>
-        <br>
-        <br>
-        <div class="col-md-4">
-          <p><a class="btn btn-info btn-sm" href="/animals/<%= animal.id %>" role="button">View Profile</a></p>
-        </div>
-        <div class="col-md-4">
+               <img src="http://placehold.it/500x500&text=No Picture" class="img-circle" alt="<%= animal.name %>" width="200" height="200">
+           
+          <% end %>
+          <br>
+          <br>
+          Name: <%= animal.name %>
+          <br>
+          Breed: <%= animal.breed %>
+          <br>
+          Age (in years): <%= animal.age %> 
+          <br>
+          Date Added: <%= animal.date %>
+          <br>
+          <br>
+          <div class="col-md-4">
+            <p><a class="btn btn-info btn-sm" href="/animals/<%= animal.id %>" role="button">View Profile</a></p>
+          </div>
+          <div class="col-md-4">
+            <% if logged_in? %>
 
-        <% if logged_in? %>
-
-          <%= button_to "Interested!", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-success btn-sm" %>
-        <% end %>
+              <%= button_to "Interested!", {:controller => "interests", :action => "create", :animal => animal.id, :user => session[:user_id]}, class: "btn btn-success btn-sm" %>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 <br>
