@@ -10,13 +10,13 @@ class Interest < ActiveRecord::Base
 	def user_has_one_interest_per_animal
 		return true if self.user.nil? || self.animal.nil?
 		unless Interest.where(animal_id: self.animal_id, user_id: self.user_id).to_a.empty?
-			errors.add(:base, "User already showed interest in this animal")
+			errors.add(:base, "You already showed interest in this animal")
 		end
 	end
 
 	def user_cannot_show_interest_to_himself
 		if (self.animal.user_id == self.user_id)
-			errors.add(:base, "User cannot show interest to his/her own animal")
+			errors.add(:base, "You cannot show interest to his/her own animal!")
 		end
 	end
 end

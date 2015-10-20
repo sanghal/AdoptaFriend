@@ -3,7 +3,7 @@ class FriendMailer < ActionMailer::Base
   
   def new_friend_announcement(friend)
     @friend = friend
-    mail(:to => friend.email, :subject => "My New Friend") 
+    mail(:to => friend.email, :subject => "Pet interest") 
   end
   
 
